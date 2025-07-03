@@ -92,3 +92,10 @@ CREATE TABLE users (
   email VARCHAR(255) NOT NULL
 );
 ```
+## 📸 Screenshots
+
+### 🔐 Login Page Background
+![Login Background](assets/login-bg.png)
+
+### 📝 Registration Page Background
+![Register Background](assets/reg-bg.png)
