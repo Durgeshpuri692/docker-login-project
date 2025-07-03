@@ -94,8 +94,11 @@ CREATE TABLE users (
 ```
 ## 📸 Screenshots
 
-### 🔐 Login Page Background
-![Login Background](assets/login-bg.png)
+### 🔐 Login Page
+![Login Page](assets/login-page.png)
 
-### 📝 Registration Page Background
-![Register Background](assets/reg-bg.png)
+### 📝 Registration Page
+![Register Page](assets/register-page.png)
+
+### 📝 Welcome Page
+![Welcome Page](assets/welcome-page.png)
