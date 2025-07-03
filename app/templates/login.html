@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Remix Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/3.5.0/remixicon.css" crossorigin="anonymous" />
+
+  <title>Login Form</title>
+
+  <style>
+    /*=============== GOOGLE FONTS ===============*/
+    @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
+
+    /*=============== VARIABLES ===============*/
+    :root {
+      --white-color: hsl(0, 0%, 100%);
+      --black-color: hsl(0, 0%, 0%);
+      --body-font: "Poppins", sans-serif;
+      --h1-font-size: 2rem;
+      --normal-font-size: 1rem;
+      --small-font-size: 0.813rem;
+    }
+
+    /*=============== BASE ===============*/
+    * {
+      box-sizing: border-box;
+      padding: 0;
+      margin: 0;
+    }
+
+    body,
+    input,
+    button {
+      font-family: var(--body-font);
+      font-size: var(--normal-font-size);
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+      height: auto;
+    }
+
+    /*=============== LOGIN ===============*/
+    .login {
+      position: relative;
+      height: 100vh;
+      display: grid;
+      align-items: center;
+      justify-content: center;
+      background: url("{{ url_for('static', filename='images/login-bg.png') }}") no-repeat center center/cover;
+    }
+
+    .login__form {
+      position: relative;
+      background-color: hsla(0, 0%, 100%, 0.05);
+      border: 2px solid hsla(0, 0%, 100%, 0.7);
+      padding: 2.5rem 1.5rem;
+      color: var(--white-color);
+      border-radius: 1rem;
+      backdrop-filter: blur(16px);
+      width: 100%;
+      max-width: 400px;
+      margin-inline: 1.5rem;
+    }
+
+    .login__title {
+      text-align: center;
+      font-size: var(--h1-font-size);
+      margin-bottom: 1.5rem;
+    }
+
+    .login__inputs {
+      display: grid;
+      row-gap: 1.25rem;
+      margin-bottom: 1rem;
+    }
+
+    .login__box {
+      display: grid;
+      grid-template-columns: 1fr max-content;
+      align-items: center;
+      column-gap: 0.75rem;
+      border: 2px solid hsla(0, 0%, 100%, 0.7);
+      padding: 0.75rem 1.25rem;
+      border-radius: 4rem;
+    }
+
+    .login__input {
+      border: none;
+      outline: none;
+      width: 100%;
+      background: none;
+      color: var(--white-color);
+      padding: 0.5rem 0;
+    }
+
+    .login__input::placeholder {
+      color: var(--white-color);
+    }
+
+    .login__box i {
+      font-size: 1.25rem;
+    }
+
+    .login__check {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: var(--small-font-size);
+      margin-bottom: 1rem;
+    }
+
+    .login__check-box {
+      display: flex;
+      align-items: center;
+      column-gap: 0.5rem;
+    }
+
+    .login__check-input {
+      width: 1rem;
+      height: 1rem;
+      accent-color: var(--white-color);
+    }
+
+    .login__forgot {
+      color: var(--white-color);
+    }
+
+    .login__forgot:hover {
+      text-decoration: underline;
+    }
+
+    .login__button {
+      width: 100%;
+      padding: 1rem;
+      background-color: var(--white-color);
+      border-radius: 4rem;
+      color: var(--black-color);
+      font-weight: 500;
+      border: none;
+      cursor: pointer;
+      margin-bottom: 1rem;
+    }
+
+    .login__register {
+      text-align: center;
+      font-size: var(--small-font-size);
+    }
+
+    .login__register a {
+      color: var(--white-color);
+      font-weight: 500;
+    }
+
+    .login__register a:hover {
+      text-decoration: underline;
+    }
+
+    @media screen and (min-width: 576px) {
+      .login__form {
+        padding-inline: 2.5rem;
+      }
+
+      .login__title {
+        margin-bottom: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="login">
+    <form method="POST" action="/login" class="login__form">
+      <h1 class="login__title">Login</h1>
+
+      <div class="login__inputs">
+        <div class="login__box">
+          <input type="text" name="username" placeholder="Username" required class="login__input" />
+          <i class="ri-mail-fill"></i>
+        </div>
+
+        <div class="login__box">
+          <input type="password" name="password" placeholder="Password" required class="login__input" />
+          <i class="ri-lock-2-fill"></i>
+        </div>
+      </div>
+
+      <div class="login__check">
+        <div class="login__check-box">
+          <input type="checkbox" class="login__check-input" id="user-check" />
+          <label for="user-check" class="login__check-label">Remember me</label>
+        </div>
+
+        <a href="#" class="login__forgot">Forgot Password?</a>
+      </div>
+
+      <button type="submit" class="login__button">Login</button>
+
+      <div class="login__register">
+        Don't have an account? <a href="/register">Register</a>
+      </div>
+    </form>
+  </div>
+</body>
+</html>

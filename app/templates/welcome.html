@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Remix Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/3.5.0/remixicon.css" crossorigin="anonymous" />
+
+  <title>Welcome</title>
+
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap");
+
+    :root {
+      --white-color: hsl(0, 0%, 100%);
+      --body-font: "Poppins", sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      padding: 0;
+      margin: 0;
+    }
+
+    body {
+      font-family: var(--body-font);
+      background: url("{{ url_for('static', filename='images/login-bg.png') }}") no-repeat center center/cover;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      color: var(--white-color);
+    }
+
+    .welcome-box {
+      background-color: hsla(0, 0%, 100%, 0.08);
+      border: 2px solid hsla(0, 0%, 100%, 0.6);
+      padding: 3rem 2rem;
+      border-radius: 1rem;
+      backdrop-filter: blur(20px);
+      text-align: center;
+      width: 90%;
+      max-width: 450px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    }
+
+    .welcome-box h1 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .welcome-box p {
+      font-size: 1.1rem;
+      margin-bottom: 2rem;
+    }
+
+    .welcome-box i {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      display: block;
+      color: #ffffff;
+    }
+
+    .logout-btn {
+      background-color: var(--white-color);
+      color: #000;
+      border: none;
+      border-radius: 2rem;
+      padding: 0.8rem 2rem;
+      font-weight: 600;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .logout-btn:hover {
+      background-color: #e0e0e0;
+    }
+
+    @media (max-width: 480px) {
+      .welcome-box h1 {
+        font-size: 1.5rem;
+      }
+
+      .welcome-box p {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="welcome-box">
+    <i class="ri-emotion-happy-line"></i>
+    <h1>Welcome, {{ username }}!</h1>
+    <p>You have successfully logged in.</p>
+    <!-- Optional logout button -->
+    <!-- <form action="/logout" method="POST">
+      <button type="submit" class="logout-btn">Logout</button>
+    </form> -->
+  </div>
+</body>
+</html>
+

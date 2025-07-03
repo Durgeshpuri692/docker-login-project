@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Remix Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/3.5.0/remixicon.css" crossorigin="anonymous" />
+
+  <title>Register</title>
+
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
+
+    :root {
+      --white-color: hsl(0, 0%, 100%);
+      --black-color: hsl(0, 0%, 0%);
+      --body-font: "Poppins", sans-serif;
+      --h1-font-size: 2rem;
+      --normal-font-size: 1rem;
+      --small-font-size: 0.813rem;
+    }
+
+    * {
+      box-sizing: border-box;
+      padding: 0;
+      margin: 0;
+    }
+
+    body,
+    input,
+    button {
+      font-family: var(--body-font);
+      font-size: var(--normal-font-size);
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+      height: auto;
+    }
+
+    .register {
+      position: relative;
+      height: 100vh;
+      display: grid;
+      align-items: center;
+      justify-content: center;
+      background: url("{{ url_for('static', filename='images/reg-bg.png') }}") no-repeat center center/cover;
+    }
+
+    .register__form {
+      background-color: hsla(0, 0%, 100%, 0.05);
+      border: 2px solid hsla(0, 0%, 100%, 0.7);
+      padding: 2.5rem 1.5rem;
+      color: var(--white-color);
+      border-radius: 1rem;
+      backdrop-filter: blur(16px);
+      width: 100%;
+      max-width: 400px;
+      margin-inline: 1.5rem;
+    }
+
+    .register__title {
+      text-align: center;
+      font-size: var(--h1-font-size);
+      margin-bottom: 1.5rem;
+    }
+
+    .register__inputs {
+      display: grid;
+      row-gap: 1.25rem;
+      margin-bottom: 1rem;
+    }
+
+    .register__box {
+      display: grid;
+      grid-template-columns: 1fr max-content;
+      align-items: center;
+      column-gap: 0.75rem;
+      border: 2px solid hsla(0, 0%, 100%, 0.7);
+      padding: 0.75rem 1.25rem;
+      border-radius: 4rem;
+    }
+
+    .register__input {
+      border: none;
+      outline: none;
+      width: 100%;
+      background: none;
+      color: var(--white-color);
+      padding: 0.5rem 0;
+    }
+
+    .register__input::placeholder {
+      color: var(--white-color);
+    }
+
+    .register__box i {
+      font-size: 1.25rem;
+    }
+
+    .register__button {
+      width: 100%;
+      padding: 1rem;
+      background-color: var(--white-color);
+      border-radius: 4rem;
+      color: var(--black-color);
+      font-weight: 500;
+      border: none;
+      cursor: pointer;
+      margin-bottom: 1rem;
+    }
+
+    .register__login {
+      text-align: center;
+      font-size: var(--small-font-size);
+    }
+
+    .register__login a {
+      color: var(--white-color);
+      font-weight: 500;
+    }
+
+    .register__login a:hover {
+      text-decoration: underline;
+    }
+
+    @media screen and (min-width: 576px) {
+      .register__form {
+        padding-inline: 2.5rem;
+      }
+
+      .register__title {
+        margin-bottom: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="register">
+    <form method="POST" action="/submit" class="register__form">
+      <h1 class="register__title">Register</h1>
+
+      <div class="register__inputs">
+        <div class="register__box">
+          <input type="text" name="username" placeholder="Username" required class="register__input" />
+          <i class="ri-user-fill"></i>
+        </div>
+
+        <div class="register__box">
+          <input type="password" name="password" placeholder="Password" required class="register__input" />
+          <i class="ri-lock-2-fill"></i>
+        </div>
+
+        <div class="register__box">
+          <input type="email" name="email" placeholder="Email ID" required class="register__input" />
+          <i class="ri-mail-fill"></i>
+        </div>
+      </div>
+
+      <button type="submit" class="register__button">Create Account</button>
+
+      <div class="register__login">
+        Already have an account? <a href="/">Login</a>
+      </div>
+    </form>
+  </div>
+</body>
+</html>
+
